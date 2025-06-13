@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beranda</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Styles for extra images */
+    .extra-img {
+      width: 120px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0;
+      transition: all 0.5s ease;
+      z-index: 1;
+    }
+
+    .extra-img.show {
+      opacity: 1;
+      transform: translateY(-50%) scale(1.05);
+    }
+
+    #left-pic {
+      left: 5%;
+    }
+
+    #right-pic {
+      right: 5%;
+    }
+
+    #profile-pic {
+      cursor: pointer;
+    }
+
+    /* Styles for background image */
+    .bg-profile-img {
+      position: absolute;
+      top: -20%;
+      left: -10%;
+      width: 120%;
+      height: 162%;
+      object-fit: cover;
+      opacity: 0.8;
+      z-index: 0;
+    }
+
+    /* Styles for header section */
+    header {
+      position: relative;
+      overflow: hidden;
+      min-height: 400px;
+    }
+
+    header .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Styles for name effect */
+    .nama-efek {
+      background: linear-gradient(to right, #ffffff, #bb1818);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 5px #0d6efd;
+      }
+      to {
+        text-shadow: 0 0 20px #ffffff, 0 0 30px #f21010;
+      }
+    }
+
+    /* Styles for the bottom section */
+    .bottom-section {
+      background-color: #212529; /* Warna hitam yang digunakan oleh navbar Bootstrap (bg-dark) */
+      color: white; /* White text */
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Website Portofolio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Beranda</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">Tentang Saya</a></li>
+          <li class="nav-item"><a class="nav-link" href="portofolio.html">Portofolio</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Kontak</a></li>
+          <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="testimoni.html">Testimoni</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-primary text-white text-center py-5 position-relative">
+    <div class="container">
+      <img src="backgrounds.jpg" class="bg-profile-img" alt="Background Profil">
+      <div class="container position-relative z-1">
+        <img id="profile-pic" src="profil.jpg" class="rounded-circle mb-3" alt="Foto Profil" style="width: 150px; height: 150px;">
+        <h1 class="display-4 nama-efek">OKTAFANO G. LODOWIK</h1>
+        <p class="lead">Profesi Anda - Web Developer / Designer / etc.</p>
+
+        <img id="left-pic" src="kiri.jpg" class="extra-img shadow border border-white" style="width: 180px;" alt="Foto Kiri">
+        <img id="right-pic" src="kanan.jpg" class="extra-img shadow border border-white" style="width: 180px;" alt="Foto Kanan">
+      </div>
+    </div>
+  </header>
+
+  <section class="p-5 bottom-section">
+    <div class="container text-center">
+      <p class="lead">Selamat datang di website portofolio pribadi saya. Di sini Anda dapat melihat proyek-proyek saya, membaca blog, serta mengetahui lebih lanjut tentang saya dan cara menghubungi saya.</p>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const profilePic = document.getElementById("profile-pic");
+    const leftPic = document.getElementById("left-pic");
+    const rightPic = document.getElementById("right-pic");
+
+    let visible = false;
+
+    profilePic.addEventListener("click", () => {
+      visible = !visible;
+      if (visible) {
+        leftPic.classList.add("show");
+        rightPic.classList.add("show");
+      } else {
+        leftPic.classList.remove("show");
+        rightPic.classList.remove("show");
+      }
+    });
+  </script>
+</body>
+</html>
